@@ -62,7 +62,6 @@ function Signup() {
       })
     }
   };
-  console.log(signupError);
   return (
     <div>
       <div className="signupParentDiv">
