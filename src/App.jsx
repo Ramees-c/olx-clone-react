@@ -4,6 +4,10 @@ import Signup from './components/Signup/Signup';
 import LoginPage from './pages/LoginPage/LoginPage'
 
 function App() {
+  useEffect(() => {
+    console.log("user")
+  },[])
+  
   return (
     <>
     <Routes>
