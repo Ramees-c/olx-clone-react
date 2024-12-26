@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage/LoginPage'
 import { useContext, useEffect } from 'react';
 import {AuthentContext} from "./context/UsersContext"
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import CreatePage from './pages/CreatePage/CreatePage';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <Route exact path='/' element={<Home />} />
       <Route path='/signup' element={<Signup />} />
       <Route path='/login' element={<LoginPage />} />
+      <Route path='/create' element={<CreatePage />} />
     </Routes>
     </>
   )
