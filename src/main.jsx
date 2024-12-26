@@ -3,19 +3,22 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 
-import UserContext from "./context/UserContext";
 import { FirebaseContext } from "./context/FirebaseContext";
 
-import { app } from "./firebase/config";
+import { app, db } from "./firebase/config";
 
 import { BrowserRouter } from "react-router-dom";
+import UsersContext from "./context/UsersContext.jsx";
+
 
 createRoot(document.getElementById("root")).render(
-  <UserContext>
-    <FirebaseContext.Provider value={{ app }}>
-      <BrowserRouter>
+
+  <FirebaseContext.Provider value={{ app, db }}>
+     <UsersContext>
+     <BrowserRouter>
         <App />
       </BrowserRouter>
+     </UsersContext>
     </FirebaseContext.Provider>
-  </UserContext>
+
 );

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import "./Signup.css";
 
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, updateProfile } from "firebase/auth";
 
 import Logo from "../../olx-logo.png";
 import { FirebaseContext } from "../../context/FirebaseContext";
@@ -47,6 +47,9 @@ function Signup() {
       .then((userCredential) => {
         user = userCredential.user;
         // setUser(userCredential.user)
+        updateProfile(user, {
+          displayName: value.username,
+        });
       })
       .catch ((err) => {
         setSignupError(err.message)

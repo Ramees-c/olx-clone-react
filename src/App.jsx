@@ -2,10 +2,21 @@ import {Routes, Route} from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Signup from './components/Signup/Signup';
 import LoginPage from './pages/LoginPage/LoginPage'
+import { useContext, useEffect } from 'react';
+import {AuthentContext} from "./context/UsersContext"
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+
 
 function App() {
+  const {setUser} = useContext(AuthentContext)
+
+  const auth = getAuth();
+  
   useEffect(() => {
-    console.log("user")
+   onAuthStateChanged(auth, (user) => {
+    setUser(user)
+    // console.log(user.displayName,"display name")
+   })
   },[])
   
   return (
